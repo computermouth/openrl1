@@ -16,6 +16,10 @@ A LICENSE will be determined by contributing members, but it'll be something ext
 
 There's a file at the root of this repository `files.txt` marking which files still have yet to be replaced, and what types the files are.
 
+## How are we gonna replace those files?
+
+There's a few XNB packers/unpackers I found out there that can be used against to original data to get info like how the fonts and sprites are packed. Here's [a web-based one](https://lybell-art.github.io/xnb-js/).
+
 ## Where can we organize?
 
 I've created a [Discord server](https://discord.gg/mp4zDfKefj) to get a quick place set up.
