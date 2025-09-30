@@ -1,0 +1,55 @@
+{
+    "header": {
+        "target": "w",
+        "formatVersion": 5,
+        "hidef": false,
+        "compressed": false
+    },
+    "readers": [
+        {
+            "type": "Microsoft.Xna.Framework.Content.SpriteFontReader, Microsoft.Xna.Framework.Graphics, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553",
+            "version": 0
+        },
+        {
+            "type": "Microsoft.Xna.Framework.Content.Texture2DReader, Microsoft.Xna.Framework.Graphics, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553",
+            "version": 0
+        },
+        {
+            "type": "Microsoft.Xna.Framework.Content.ListReader`1[[Microsoft.Xna.Framework.Rectangle, Microsoft.Xna.Framework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553]]",
+            "version": 0
+        },
+        {
+            "type": "Microsoft.Xna.Framework.Content.RectangleReader",
+            "version": 0
+        },
+        {
+            "type": "Microsoft.Xna.Framework.Content.ListReader`1[[System.Char, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]",
+            "version": 0
+        },
+        {
+            "type": "Microsoft.Xna.Framework.Content.CharReader",
+            "version": 0
+        },
+        {
+            "type": "Microsoft.Xna.Framework.Content.ListReader`1[[Microsoft.Xna.Framework.Vector3, Microsoft.Xna.Framework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553]]",
+            "version": 0
+        },
+        {
+            "type": "Microsoft.Xna.Framework.Content.Vector3Reader",
+            "version": 0
+        }
+    ],
+    "content": {
+        "texture": {
+            "format": 5,
+            "export": "REPLACE_ME.png"
+        },
+        "glyphs": [],
+        "cropping": [],
+        "characterMap": [],
+        "verticalLineSpacing": 0,
+        "horizontalSpacing": 0,
+        "kerning": [],
+        "defaultCharacter": null
+    }
+}
