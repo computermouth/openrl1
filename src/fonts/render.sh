@@ -23,6 +23,10 @@ template=$(cat $REAL/template.json)
 height=-1
 width_marker=0
 
+# create namespaced directory for this font
+rm -rf "$REAL/png/$OUTPUT"
+mkdir -p "$REAL/png/$OUTPUT"
+
 out_name="$OUTPUT.png"
 json=$(echo $template | jq ".content.texture.export=\"$out_name\"")
 
@@ -53,10 +57,10 @@ while IFS= read -r -n1 ch; do
 		-antialias \
 		-pointsize $SIZE \
 		label:$prefix"$ch" \
-		$REAL/png/$out.png
-	
-	h=$(identify -format "%h" $REAL/png/$out.png)
-	w=$(identify -format "%w" $REAL/png/$out.png)
+		$REAL/png/$OUTPUT/$out.png
+
+	h=$(identify -format "%h" $REAL/png/$OUTPUT/$out.png)
+	w=$(identify -format "%w" $REAL/png/$OUTPUT/$out.png)
 	
 	if [[ "$height" == "-1" ]]; then
 		height=$h
@@ -85,7 +89,7 @@ done < $REAL/charset/$CHARSET.txt
 json=$(echo $json | jq ".content.verticalLineSpacing=$height")
 
 # build final texture
-LIST=$(find $REAL/png/*.png)
+LIST=$(find $REAL/png/$OUTPUT/*.png)
 convert $LIST +append $REAL/xnb/$out_name
 
 # write out json
