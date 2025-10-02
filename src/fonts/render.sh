@@ -1,22 +1,26 @@
 #!/bin/bash -e
 
-if [[ ! -n $1 || ! -n $2 || ! -n 3 || ! -n 4 ]] ; then
-	echo "E: bad args"
-	echo "   usage: $0 <font> <charset> <size> <output_name>"
+REAL=$(dirname $(realpath $0))
+
+if [[ ! -n $1 || ! -f $REAL/conf/$1 ]] ; then
+	echo "E: missing/bad conf"
+	echo "   usage: $0 <conf>"
+	echo ""
+	echo "   available configs:"
+	echo "   =================="
+for I in $(ls $REAL/conf/*.conf); do
+	echo "   - $(basename $I)"
+done
 	exit 1
 fi
 
-FILE=$1
-CHARSET=$2
-SIZE=$3
-OUTPUT=$4
+. $REAL/conf/$1
 
 # glyph or cropping
 gorc_t='{"x": 0, "y": 0, "width": 0, "height": 0}'
 # kerning
 kern_t='{"x": 0, "y": 0, "z": 0}'
 
-REAL=$(dirname $(realpath $0))
 
 template=$(cat $REAL/template.json)
 
@@ -24,11 +28,11 @@ height=-1
 width_marker=0
 
 # create namespaced directory for this font
-rm -rf "$REAL/png/$OUTPUT"
-mkdir -p "$REAL/png/$OUTPUT"
+rm -rf "$REAL/png/$OUTNAME"
+mkdir -p "$REAL/png/$OUTNAME"
 
-out_name="$OUTPUT.png"
-json=$(echo $template | jq ".content.texture.export=\"$out_name\"")
+FINAL_PNG="$OUTNAME.png"
+json=$(echo $template | jq ".content.texture.export=\"$FINAL_PNG\"")
 
 while IFS= read -r -n1 ch; do
 
@@ -41,7 +45,7 @@ while IFS= read -r -n1 ch; do
 
 	# escape anything outside this range
 	if [[ ! "$ch" =~ [a-zA-Z0-9,._+:@%/-] ]]; then
-		prefix="\\"
+		prefix="\\\\"
 	else
 		prefix=""
 	fi
@@ -49,18 +53,19 @@ while IFS= read -r -n1 ch; do
 	# get a friendly name for output
 	out=$(printf "%04d" $dec)
 
-	# render each character to a png
-	convert \
-		-background none \
-		-fill white \
-		-font $REAL/ttf/$FILE.ttf \
-		-antialias \
-		-pointsize $SIZE \
-		label:$prefix"$ch" \
-		$REAL/png/$OUTPUT/$out.png
+	PNG=$REAL/png/$OUTNAME/$out.png
+	LABEL="$prefix$ch"
+	FONT=$REAL/ttf/$TTF
 
-	h=$(identify -format "%h" $REAL/png/$OUTPUT/$out.png)
-	w=$(identify -format "%w" $REAL/png/$OUTPUT/$out.png)
+	# source the conf again
+	# now that all the variables are backfilled
+	. $REAL/conf/$1
+
+	# render each character to a png
+	magick $ARGS
+
+	h=$(identify -format "%h" $REAL/png/$OUTNAME/$out.png)
+	w=$(identify -format "%w" $REAL/png/$OUTNAME/$out.png)
 	
 	if [[ "$height" == "-1" ]]; then
 		height=$h
@@ -84,16 +89,16 @@ while IFS= read -r -n1 ch; do
 	
 	width_marker=$((width_marker + w))
 
-done < $REAL/charset/$CHARSET.txt
+done < $REAL/charset/$CHARSET
 
 json=$(echo $json | jq ".content.verticalLineSpacing=$height")
 
 # build final texture
-LIST=$(find $REAL/png/$OUTPUT/*.png)
-convert $LIST +append $REAL/xnb/$out_name
+LIST=$(find $REAL/png/$OUTNAME/*.png)
+convert $LIST +append $REAL/xnb/$FINAL_PNG
 
 # write out json
-echo $json | jq . > $REAL/xnb/$OUTPUT.json
+echo $json | jq . > $REAL/xnb/$OUTNAME.json
 
 # build xnb
-xnbcli pack $REAL/xnb/$OUTPUT.json
+xnbcli pack $REAL/xnb/$OUTNAME.json

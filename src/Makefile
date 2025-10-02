@@ -2,4 +2,5 @@
 all: allfonts
 
 allfonts:
-	./fonts/render.sh Arimo-Bold Arial12 16 Arial12
+	./fonts/render.sh Arial12.conf
+	./fonts/render.sh PlayerLevelFont.conf
