@@ -62,7 +62,7 @@ while IFS= read -r -n1 ch; do
 	. $REAL/conf/$1
 
 	# render each character to a png
-	magick $ARGS
+	convert $ARGS
 
 	h=$(identify -format "%h" $REAL/png/$OUTNAME/$out.png)
 	w=$(identify -format "%w" $REAL/png/$OUTNAME/$out.png)
