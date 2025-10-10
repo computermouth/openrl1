@@ -27,6 +27,10 @@ $ sudo apt install -y make jq imagemagick unzip
 
 You will also need to install [xnbcli](https://github.com/LeonBlade/xnbcli/releases/tag/v1.0.7) and add it to your `$PATH`.
 
+## Installing
+
+Until all files have replacements, the method for using these will be to copy the files in `Content` into your `Content` folder in your steam directory `Steam/steamapps/common/Rogue Legacy/Content`.
+
 ## The plan
 
 - Determine what files are required to run the game
@@ -37,6 +41,8 @@ You will also need to install [xnbcli](https://github.com/LeonBlade/xnbcli/relea
 ## What is being worked on? What still needs to be done?
 
 You can find information and status in the `progress.txt` file, it details which files still have yet to be replaced, if there's a process defined for replacing them, and what types the files are. I've just finished a working build process for the fonts. Check it out in `src/fonts`.
+
+Check the repo's issues.
 
 ## How does process get defined
 
