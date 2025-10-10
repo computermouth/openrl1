@@ -1,0 +1,104 @@
+status | filename                                        | file type
+================================================================================================================
+       | Audio/MusicSoundBank.xsb:                       | data
+       | Audio/MusicWaveBank.xwb:                        | data
+       | Audio/RogueCastleXACTProj.xgs:                  | zlib compressed data
+       | Audio/sfx_blitworks_logo.xnb:                   | MonoGame/XNA processed assets, for Windows, version 5
+       | Audio/SFXSoundBank.xsb:                         | data
+       | Audio/SFXWaveBank.xwb:                          | data
+ BROKE | Fonts/Arial12.xnb:                              | MonoGame/XNA processed assets, for Windows, version 5
+       | Fonts/BitFont.xnb:                              | MonoGame/XNA processed assets, for Windows, version 5
+       | Fonts/CinzelFont.xnb:                           | MonoGame/XNA processed assets, for Windows, version 5
+ DONE  | Fonts/EnemyLevelFont.xnb:                       | MonoGame/XNA processed assets, for Windows, version 5
+       | Fonts/FpsFont.xnb:                              | MonoGame/XNA processed assets, for Windows, version 5
+ BROKE | Fonts/GoldFont.xnb:                             | MonoGame/XNA processed assets, for Windows, version 5
+       | Fonts/HerzogVonGraf24.xnb:                      | MonoGame/XNA processed assets, for Windows, version 5
+       | Fonts/JunicodeLarge.xnb:                        | MonoGame/XNA processed assets, for Windows, version 5
+       | Fonts/Junicode.xnb:                             | MonoGame/XNA processed assets, for Windows, version 5
+       | Fonts/NotoSansSC.xnb:                           | MonoGame/XNA processed assets, for Windows, version 5
+       | Fonts/PixelArtFontBold.xnb:                     | MonoGame/XNA processed assets, for Windows, version 5
+       | Fonts/PixelArtFont.xnb:                         | MonoGame/XNA processed assets, for Windows, version 5
+ DONE  | Fonts/PlayerLevelFont.xnb:                      | MonoGame/XNA processed assets, for Windows, version 5
+       | Fonts/RobotoSlab.xnb:                           | MonoGame/XNA processed assets, for Windows, version 5
+       | GameSpritesheets/blacksmithUISpritesheet.xml:   | ASCII text
+       | GameSpritesheets/blacksmithUISpritesheet.xnb:   | MonoGame/XNA processed assets, for Windows, version 5
+       | GameSpritesheets/blitworksSpritesheet.xml:      | ASCII text
+       | GameSpritesheets/blitworksSpritesheet.xnb:      | MonoGame/XNA processed assets, for Windows, version 5
+       | GameSpritesheets/castleTerrainSpritesheet.xml:  | ASCII text
+       | GameSpritesheets/castleTerrainSpritesheet.xnb:  | MonoGame/XNA processed assets, for Windows, version 5
+       | GameSpritesheets/dungeonTerrainSpritesheet.xml: | ASCII text
+       | GameSpritesheets/dungeonTerrainSpritesheet.xnb: | MonoGame/XNA processed assets, for Windows, version 5
+       | GameSpritesheets/enemyFinal2Spritesheet.xml:    | ASCII text
+       | GameSpritesheets/enemyFinal2Spritesheet.xnb:    | MonoGame/XNA processed assets, for Windows, version 5
+       | GameSpritesheets/enemyFinalSpritesheetBig.xml:  | ASCII text
+       | GameSpritesheets/enemyFinalSpritesheetBig.xnb:  | MonoGame/XNA processed assets, for Windows, version 5
+       | GameSpritesheets/flare3.xnb:                    | MonoGame/XNA processed assets, for Windows, version 5
+       | GameSpritesheets/gardenTerrainSpritesheet.xml:  | ASCII text
+       | GameSpritesheets/gardenTerrainSpritesheet.xnb:  | MonoGame/XNA processed assets, for Windows, version 5
+       | GameSpritesheets/getItemScreenSpritesheet.xml:  | ASCII text
+       | GameSpritesheets/getItemScreenSpritesheet.xnb:  | MonoGame/XNA processed assets, for Windows, version 5
+       | GameSpritesheets/language2Spritesheet.xml:      | ASCII text
+       | GameSpritesheets/language2Spritesheet.xnb:      | MonoGame/XNA processed assets, for Windows, version 5
+       | GameSpritesheets/language3Spritesheet.xml:      | ASCII text
+       | GameSpritesheets/language3Spritesheet.xnb:      | MonoGame/XNA processed assets, for Windows, version 5
+       | GameSpritesheets/languageSpritesheet.xml:       | ASCII text
+       | GameSpritesheets/languageSpritesheet.xnb:       | MonoGame/XNA processed assets, for Windows, version 5
+       | GameSpritesheets/mapSpritesheetBig.xml:         | ASCII text
+       | GameSpritesheets/mapSpritesheetBig.xnb:         | MonoGame/XNA processed assets, for Windows, version 5
+       | GameSpritesheets/miscSpritesheet.xml:           | ASCII text
+       | GameSpritesheets/miscSpritesheet.xnb:           | MonoGame/XNA processed assets, for Windows, version 5
+       | GameSpritesheets/neoTerrainSpritesheet.xml:     | ASCII text
+       | GameSpritesheets/neoTerrainSpritesheet.xnb:     | MonoGame/XNA processed assets, for Windows, version 5
+       | GameSpritesheets/parallaxBGSpritesheet.xml:     | ASCII text
+       | GameSpritesheets/parallaxBGSpritesheet.xnb:     | MonoGame/XNA processed assets, for Windows, version 5
+       | GameSpritesheets/playerSpritesheetBig.xml:      | ASCII text
+       | GameSpritesheets/playerSpritesheetBig.xnb:      | MonoGame/XNA processed assets, for Windows, version 5
+       | GameSpritesheets/portraitSpritesheet.xml:       | ASCII text
+       | GameSpritesheets/portraitSpritesheet.xnb:       | MonoGame/XNA processed assets, for Windows, version 5
+       | GameSpritesheets/profileCardSpritesheet.xml:    | ASCII text
+       | GameSpritesheets/profileCardSpritesheet.xnb:    | MonoGame/XNA processed assets, for Windows, version 5
+       | GameSpritesheets/startingRoomSpritesheet.xml:   | ASCII text
+       | GameSpritesheets/startingRoomSpritesheet.xnb:   | MonoGame/XNA processed assets, for Windows, version 5
+       | GameSpritesheets/titleScreen3Spritesheet.xml:   | ASCII text
+       | GameSpritesheets/titleScreen3Spritesheet.xnb:   | MonoGame/XNA processed assets, for Windows, version 5
+       | GameSpritesheets/towerTerrainSpritesheet.xml:   | ASCII text
+       | GameSpritesheets/towerTerrainSpritesheet.xnb:   | MonoGame/XNA processed assets, for Windows, version 5
+       | GameSpritesheets/traitsCastleSpritesheet.xml:   | ASCII text
+       | GameSpritesheets/traitsCastleSpritesheet.xnb:   | MonoGame/XNA processed assets, for Windows, version 5
+       | Levels/Map_1x1.xml:                             | XML 1.0 document, Unicode text, UTF-8 (with BOM) text, with CRLF line terminators
+       | Levels/Map_1x2.xml:                             | XML 1.0 document, Unicode text, UTF-8 (with BOM) text, with CRLF line terminators
+       | Levels/Map_1x3.xml:                             | XML 1.0 document, Unicode text, UTF-8 (with BOM) text, with CRLF line terminators
+       | Levels/Map_2x1.xml:                             | XML 1.0 document, Unicode text, UTF-8 (with BOM) text, with CRLF line terminators
+       | Levels/Map_2x2.xml:                             | XML 1.0 document, Unicode text, UTF-8 (with BOM) text, with CRLF line terminators
+       | Levels/Map_2x3.xml:                             | XML 1.0 document, Unicode text, UTF-8 (with BOM) text, with CRLF line terminators
+       | Levels/Map_3x1.xml:                             | XML 1.0 document, Unicode text, UTF-8 (with BOM) text, with CRLF line terminators
+       | Levels/Map_3x2.xml:                             | XML 1.0 document, Unicode text, UTF-8 (with BOM) text, with CRLF line terminators
+       | Levels/Map_DLC1.xml:                            | XML 1.0 document, Unicode text, UTF-8 (with BOM) text, with CRLF line terminators
+       | Levels/Map_Special.xml:                         | XML 1.0 document, Unicode text, UTF-8 (with BOM) text, with CRLF line terminators
+       | Shaders/2xMultiBlend.xnb:                       | MonoGame/XNA processed assets, for Windows, version 5
+       | Shaders/AlphaMaskShader.xnb:                    | MonoGame/XNA processed assets, for Windows, version 5
+       | Shaders/AmbientNormalMapFX.xnb:                 | MonoGame/XNA processed assets, for Windows, version 5
+       | Shaders/BlurShader.xnb:                         | MonoGame/XNA processed assets, for Windows, version 5
+       | Shaders/BrightPass.xnb:                         | MonoGame/XNA processed assets, for Windows, version 5
+       | Shaders/BWMaskShader.xnb:                       | MonoGame/XNA processed assets, for Windows, version 5
+       | Shaders/ColourSwapShader.xnb:                   | MonoGame/XNA processed assets, for Windows, version 5
+       | Shaders/CrepuscularShader.xnb:                  | MonoGame/XNA processed assets, for Windows, version 5
+       | Shaders/GaussianBlurMask.xnb:                   | MonoGame/XNA processed assets, for Windows, version 5
+       | Shaders/GaussianBlur.xnb:                       | MonoGame/XNA processed assets, for Windows, version 5
+       | Shaders/HSVShader.xnb:                          | MonoGame/XNA processed assets, for Windows, version 5
+       | Shaders/InvertShader.xnb:                       | MonoGame/XNA processed assets, for Windows, version 5
+       | Shaders/LightRays.xnb:                          | MonoGame/XNA processed assets, for Windows, version 5
+       | Shaders/LightSourceMask.xnb:                    | MonoGame/XNA processed assets, for Windows, version 5
+       | Shaders/MaskFX_Shader2.xnb:                     | MonoGame/XNA processed assets, for Windows, version 5
+       | Shaders/NormalMapFX.xnb:                        | MonoGame/XNA processed assets, for Windows, version 5
+       | Shaders/OutlineShader.xnb:                      | MonoGame/XNA processed assets, for Windows, version 5
+       | Shaders/ParallaxFX.xnb:                         | MonoGame/XNA processed assets, for Windows, version 5
+       | Shaders/reductionEffect.xnb:                    | MonoGame/XNA processed assets, for Windows, version 5
+       | Shaders/resolveShadowsEffect.xnb:               | MonoGame/XNA processed assets, for Windows, version 5
+       | Shaders/RippleFX.xnb:                           | MonoGame/XNA processed assets, for Windows, version 5
+       | Shaders/SceneBlend.xnb:                         | MonoGame/XNA processed assets, for Windows, version 5
+       | Shaders/ShadowFX.xnb:                           | MonoGame/XNA processed assets, for Windows, version 5
+       | Shaders/ShockwaveTest.xnb:                      | MonoGame/XNA processed assets, for Windows, version 5
+       | Shaders/Shockwave.xnb:                          | MonoGame/XNA processed assets, for Windows, version 5
+       | Shaders/StrokeShader.xnb:                       | MonoGame/XNA processed assets, for Windows, version 5
+       | Shaders/TintRemovalShader.xnb:                  | MonoGame/XNA processed assets, for Windows, version 5

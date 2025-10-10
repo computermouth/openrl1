@@ -2,4 +2,4 @@
 // from the hero name list in the game.
 // Names longer than 8 characters will be truncated.
 // Special characters cannot be supported.
-Orlo
+Orl

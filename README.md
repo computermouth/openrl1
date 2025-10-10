@@ -5,6 +5,28 @@ This project aims to create a complete, free asset pack for use with the [RogueL
 
 A LICENSE will be determined by contributing members, but it'll be something extremely permissive like MIT, CC-BY-SA, or similar.
 
+## Building with Docker
+
+The easiest build process is with Docker:
+```
+$ make docker
+
+# or
+
+$ docker build -t openrl1 .
+$ docker run -it -e UID=$(UID) -v $(PWD):/build -w /build --rm openrl1 make docker-all
+```
+
+## Building natively
+
+You can also build natively. On Debian-like operating systems, install the following dependencies
+
+```
+$ sudo apt install -y make jq imagemagick unzip
+```
+
+You will also need to install [xnbcli](https://github.com/LeonBlade/xnbcli/releases/tag/v1.0.7) and add it to your `$PATH`.
+
 ## The plan
 
 - Determine what files are required to run the game
@@ -12,17 +34,16 @@ A LICENSE will be determined by contributing members, but it'll be something ext
 - Package and distribute the asset pack as a drop-in replacement for the original
 - Potentially package and distribute the game code + asset pack as a full game distributable ([more info here](https://github.com/flibitijibibo/RogueLegacy1/issues/2))
 
-## What is being worked on?
+## What is being worked on? What still needs to be done?
 
-I've just finished a working build process for the fonts. So far it only works for solid color ascii fonts. Check it out in `src/fonts`.
+You can find information and status in the `progress.txt` file, it details which files still have yet to be replaced, if there's a process defined for replacing them, and what types the files are. I've just finished a working build process for the fonts. Check it out in `src/fonts`.
 
-## What still needs to be done?
+## How does process get defined
 
-There's a file at the root of this repository `files.txt` marking which files still have yet to be replaced, and what types the files are.
-
-## How are we gonna replace those files?
-
-There's a few XNB packers/unpackers I found out there that can be used against to original data to get info like how the fonts and sprites are packed. Here's [a web-based one](https://lybell-art.github.io/xnb-js/). For the fonts I've been using [xnbcli](https://github.com/LeonBlade/xnbcli)
+1. Unpack the files in question with [xnbcli](https://github.com/LeonBlade/xnbcli)
+2. If these files can be generated via smaller primitives and scripts, do so (ttf + charset -> Arial12.png -> Font/Arial12.xnb)
+3. If the files can't be generated, provide drop-in replacements (likely going to be the case for hero(ine) names, spritesheets and sounds)
+4. Add it to the Makefile
 
 ## Where can we organize?
 

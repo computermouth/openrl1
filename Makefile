@@ -10,14 +10,16 @@ all: Content
 
 Content: Content/Fonts
 	mkdir -p Content
+	cp src/HeroNames.txt Content/
+	cp src/HeroineNames.txt Content/
 
 Content/Fonts:
 	mkdir -p Content/Fonts
-	./fonts/render.sh Arial12.conf
-	./fonts/render.sh PlayerLevelFont.conf
-	./fonts/render.sh EnemyLevelFont.conf
-	./fonts/render.sh GoldFont.conf
-	mv ./fonts/xnb/*.xnb Content/Fonts
+	./src/fonts/render.sh Arial12.conf
+	./src/fonts/render.sh PlayerLevelFont.conf
+	./src/fonts/render.sh EnemyLevelFont.conf
+	./src/fonts/render.sh GoldFont.conf
+	mv ./src/fonts/xnb/*.xnb Content/Fonts
 
 # just in case, for windows or something maybe
 UID?=1000
@@ -31,4 +33,4 @@ docker-image:
 docker-all: all
 	chown -R $(UID):$(UID) Content
 	## todo, should stop building in the fonts directory
-	chown -R $(UID):$(UID) fonts
+	chown -R $(UID):$(UID) src/fonts
