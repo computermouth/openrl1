@@ -77,7 +77,8 @@ while IFS= read -r -n1 ch; do
 	# insert ch in characterMap
 	json=$(echo $json | jq --arg in "$ch" '.content.characterMap += [$in]')
 	# add kerning (defaults)
-	json=$(echo $json | jq ".content.kerning += [$kern_t]")
+	kern=$(echo $kern_t | jq ".y=$w" )
+	json=$(echo $json | jq ".content.kerning += [$kern]")
 	
 	# add glyph
 	glyph=$(echo $gorc_t | jq ".x=$width_marker|.y=0|.width=$w|.height=$h")
