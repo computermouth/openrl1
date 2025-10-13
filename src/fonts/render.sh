@@ -89,6 +89,8 @@ while IFS= read -r -n1 ch; do
 	json=$(echo $json | jq ".content.cropping += [$crop]")
 	
 	width_marker=$((width_marker + w))
+	echo "wm: $width_marker"
+	echo "94345"
 
 done < $REAL/charset/$CHARSET
 
