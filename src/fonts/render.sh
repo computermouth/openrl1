@@ -26,6 +26,8 @@ template=$(cat $REAL/template.json)
 
 height=-1
 width_marker=0
+height_marker=0
+reset_counter=0
 
 # create namespaced directory for this font
 rm -rf "$REAL/png/$OUTNAME"
@@ -43,8 +45,15 @@ while IFS= read -r -n1 ch; do
 		continue
 	fi
 
-	# escape anything outside this range
-	if [[ ! "$ch" =~ [a-zA-Z0-9,._+:@%/-] ]]; then
+	# escape anything outside ascii printable
+	# but still inside ascii, 255 is just a guess, probably not perfect
+	# if there's ever extra \\ in the render, this is why
+	if [[ $dec -lt 255 ]] \
+	&& [[ ! "$ch" =~ [a-zA-Z0-9,._+:@%/-!\"#$\&\'()*] ]] \
+	|| [[ $dec -eq 26479 ]] \
+	|| [[ $dec -eq 26497 ]] \
+	|| [[ $dec -eq 65311 ]]; \
+	then
 		prefix="\\\\"
 	else
 		prefix=""
@@ -70,8 +79,8 @@ while IFS= read -r -n1 ch; do
 	if [[ "$height" == "-1" ]]; then
 		height=$h
 	elif [[ "$height" != "$h" ]]; then
-		echo "W: height variance $height != $h"
-		height=$h
+		echo "E: height variance $height != $h"
+		exit 1
 	fi
 	
 	# insert ch in characterMap
@@ -81,7 +90,7 @@ while IFS= read -r -n1 ch; do
 	json=$(echo $json | jq ".content.kerning += [$kern]")
 	
 	# add glyph
-	glyph=$(echo $gorc_t | jq ".x=$width_marker|.y=0|.width=$w|.height=$h")
+	glyph=$(echo $gorc_t | jq ".x=$width_marker|.y=$height_marker|.width=$w|.height=$h")
 	json=$(echo $json | jq ".content.glyphs += [$glyph]")
 	
 	# add cropping
@@ -89,16 +98,38 @@ while IFS= read -r -n1 ch; do
 	json=$(echo $json | jq ".content.cropping += [$crop]")
 	
 	width_marker=$((width_marker + w))
-	echo "wm: $width_marker"
-	echo "94345"
+
+	# this limit could be ~32000, but this is more digestable
+	if [[ $width_marker -gt 2000 ]]; then
+		width_marker=0
+		height_marker=$h
+		reset_counter=$((reset_counter+1))
+		LIST=$(find $REAL/png/$OUTNAME/[0-9]*.png)
+		padded_number=$(printf "%03d" "$reset_counter")
+		convert $LIST +append $REAL/png/$OUTNAME/o$padded_number.png
+		rm $REAL/png/$OUTNAME/[0-9]*.png
+	fi
+	
+	## old debug code
+	#~ if [[ $width_marker -eq 6781 ]]; then
+		#~ echo $dec
+	#~ fi
 
 done < $REAL/charset/$CHARSET
+
+LIST=$(find $REAL/png/$OUTNAME/[0-9]*.png)
+if [[ "x$LIST" != "x" ]]; then
+	reset_counter=$((reset_counter+1))
+	padded_number=$(printf "%03d" "$reset_counter")
+	convert $LIST +append $REAL/png/$OUTNAME/o$padded_number.png
+	rm $REAL/png/$OUTNAME/[0-9]*.png
+fi
 
 json=$(echo $json | jq ".content.verticalLineSpacing=$height")
 
 # build final texture
-LIST=$(find $REAL/png/$OUTNAME/*.png)
-convert $LIST +append $REAL/xnb/$FINAL_PNG
+LIST=$(find $REAL/png/$OUTNAME/o*.png)
+convert $LIST -append $REAL/xnb/$FINAL_PNG
 
 # write out json
 echo $json | jq . > $REAL/xnb/$OUTNAME.json
